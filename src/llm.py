@@ -27,7 +27,11 @@ from langchain_groq import ChatGroq
 def create_llm():
     load_dotenv()
 
+    # api_key = os.getenv("GROQ_API_KEY")
     api_key = os.getenv("GROQ_API_KEY")
+
+    print("DEBUG: GROQ_API_KEY exists:", bool(api_key))
+    print("DEBUG: GROQ_MODEL exists:", bool(os.getenv("GROQ_MODEL")))
 
     if not api_key or api_key.strip() in {"", "your_api_key_here"}:
         print("Error : GROQ_API_KEY is missing")
