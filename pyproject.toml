@@ -1,13 +1,12 @@
 [project]
 name = "customer-support-bot"
 version = "0.1.0"
-description = "Add your description here"
+description = "AI Customer Support Automation using LangChain, Groq and Streamlit"
 readme = "README.md"
-authors = [
-    { name = "Atif Mazhar", email = "atifmazhar00@gmail.com" }
-]
 requires-python = ">=3.13"
+
 dependencies = [
+    "streamlit",
     "langchain>=0.3.0",
     "langchain-core>=0.3.0",
     "langchain-groq",
@@ -15,13 +14,6 @@ dependencies = [
     "pydantic>=2.0.0",
     "python-dotenv>=1.0.0",
 ]
-
-[project.scripts]
-customer-support-bot = "customer_support_bot:main"
-
-[build-system]
-requires = ["uv_build>=0.12.4,<0.13.0"]
-build-backend = "uv_build"
 
 [tool.uv]
 package = false
