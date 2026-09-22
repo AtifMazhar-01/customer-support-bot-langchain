@@ -29,7 +29,6 @@ The system is implemented as a modular LangChain workflow with **Pydantic struct
 
 **[Live Demo](https://customer-support-bot-langchain.onrender.com/)** 
 
-> Placeholder: update this link once the Render service URL is available.
 
 ---
 
