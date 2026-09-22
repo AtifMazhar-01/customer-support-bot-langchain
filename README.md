@@ -27,7 +27,7 @@ The system is implemented as a modular LangChain workflow with **Pydantic struct
 
 ## Demo
 
-**[Live Demo](YOUR_RENDER_URL)** ← replace with your Render URL
+**[Live Demo](https://customer-support-bot-langchain.onrender.com/)** 
 
 > Placeholder: update this link once the Render service URL is available.
 
@@ -134,14 +134,14 @@ Customer Support Bot/
 
 ## How It Works
 
-1. **Input** — A ticket is submitted in Streamlit, or loaded from `data/support_tickets.json` via `python app.py`.
-2. **LLM setup** — `create_llm()` reads `GROQ_API_KEY` and optional `GROQ_MODEL`, then builds a `ChatGroq` model.
-3. **Workflow build** — `build_workflow()` creates triage, router, resolution, and response chains.
-4. **Triage** — The classification prompt + `TicketTriage` schema produce category, priority, and language.
-5. **Route & analyze** — The router selects a category-specific analysis schema and shared case-analysis prompt.
-6. **Resolve** — The resolution prompt + `ResolutionDecision` schema produce next-step guidance.
-7. **Respond** — The response chain drafts a customer reply using the structured context above.
-8. **Output** — Streamlit shows metrics, case summary fields, resolution details, and the reply. The CLI saves a list of `TicketResult` objects to `data/output/support_ticket_results.json`.
+1. **Input** : A ticket is submitted in Streamlit, or loaded from `data/support_tickets.json` via `python app.py`.
+2. **LLM setup** : `create_llm()` reads `GROQ_API_KEY` and optional `GROQ_MODEL`, then builds a `ChatGroq` model.
+3. **Workflow build** : `build_workflow()` creates triage, router, resolution, and response chains.
+4. **Triage** : The classification prompt + `TicketTriage` schema produce category, priority, and language.
+5. **Route & analyze** : The router selects a category-specific analysis schema and shared case-analysis prompt.
+6. **Resolve** : The resolution prompt + `ResolutionDecision` schema produce next-step guidance.
+7. **Respond** : The response chain drafts a customer reply using the structured context above.
+8. **Output** : Streamlit shows metrics, case summary fields, resolution details, and the reply. The CLI saves a list of `TicketResult` objects to `data/output/support_ticket_results.json`.
 
 ---
 
@@ -256,12 +256,12 @@ The Streamlit UI surfaces these as analysis metrics, category-specific case fiel
 
 ## Design / Engineering Highlights
 
-- **Modular LangChain workflow** — Triage, routing, analysis, resolution, and response are separate chains composed in `workflow.py`.
-- **Externalized prompts** — Prompt text lives in `prompts/`, so wording can change without editing chain code.
-- **Pydantic structured outputs** — Schemas in `schemas.py` constrain LLM responses for reliable downstream use.
-- **Category-specific analysis** — Shared analysis prompt with per-category focus fields and dedicated Pydantic models.
-- **Clear separation of concerns** — `llm.py` (model), `chains.py` (runnables), `schemas.py` (contracts), `workflow.py` (orchestration), UI/CLI entry points.
-- **Environment-based configuration** — Groq credentials and model name come from environment variables via `python-dotenv`.
+- **Modular LangChain workflow** - Triage, routing, analysis, resolution, and response are separate chains composed in `workflow.py`.
+- **Externalized prompts** - Prompt text lives in `prompts/`, so wording can change without editing chain code.
+- **Pydantic structured outputs** - Schemas in `schemas.py` constrain LLM responses for reliable downstream use.
+- **Category-specific analysis** - Shared analysis prompt with per-category focus fields and dedicated Pydantic models.
+- **Clear separation of concerns** - `llm.py` (model), `chains.py` (runnables), `schemas.py` (contracts), `workflow.py` (orchestration), UI/CLI entry points.
+- **Environment-based configuration** - Groq credentials and model name come from environment variables via `python-dotenv`.
 
 ---
 
@@ -274,13 +274,13 @@ Based on the current implementation:
 - There is **no authentication** or role-based access control.
 - Human escalation is a **decision flag** (`requires_human`), not an integrated agent handoff system.
 - Classification, priority, and responses depend on the LLM; there is **no evaluation/test harness** in the repo.
-- Batch output is file-based JSON only (`app.py` → `data/output/`).
+- Batch output is file-based JSON only (`app.py` -> `data/output/`).
 
 ---
 
 ## Future Improvements
 
-> Planned ideas — **not** implemented today.
+> Planned ideas - **not** implemented today.
 
 - Persistent ticket database
 - User authentication
@@ -298,6 +298,3 @@ Based on the current implementation:
 
 ---
 
-## License
-
-No license file is currently included in this repository. Rights remain with the author unless a license is added later.
